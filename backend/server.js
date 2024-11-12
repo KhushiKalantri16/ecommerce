@@ -22,11 +22,6 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
 
 
 // Debug environment variable loading
@@ -38,7 +33,7 @@ console.log("Cloudinary Config:", {
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
->>>>>>> a3aba55bda39df86008e10c4f30762803fa72869
+
 // Connecting to database
 connectDatabase();
 
