@@ -9,10 +9,7 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
-// Config
-if (process.env.NODE_ENV !== "PRODUCTION") {
-  require("dotenv").config({ path: "backend/config/config.env" });
-}
+
 
 // Debug environment variable loading
 console.log("MongoDB URI:", process.env.MONGODB_URI);
