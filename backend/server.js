@@ -4,8 +4,11 @@ console.log("MONGO_URI in server.js:", process.env.MONGO_URI); // Debugging line
 const app = require("./app");
 const connectDatabase = require("./config/database"); // Ensure this is correct
 
-// Connect to MongoDB
-connectDatabase(); // This will now correctly call the function defined in database.js
+// Directly define the MongoDB URI here
+const MONGO_URI = 'mongodb+srv://kalantrikhushi16:Khushi16@cluster0.njm24.mongodb.net/test?retryWrites=true&w=majority'; // Replace with your actual MongoDB URI
+
+// Update the connectDatabase function to accept the Mongo URI if needed
+connectDatabase(MONGO_URI); // Pass the Mongo URI to the function
 
 const port = process.env.PORT || 5000;
 const server = app.listen(port, () => {
