@@ -1,15 +1,13 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+require('dotenv').config();  // Ensure dotenv is loaded
 
-const connectDatabase = () => {
-  mongoose
-    .connect(process.env.DB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-    })
-    .then((data) => {
-      console.log(`Mongodb connected with server: ${data.connection.host}`);
-    });
-};
+const MONGO_URI = process.env.MONGO_URI;
 
-module.exports = connectDatabase;
+if (!MONGO_URI) {
+  console.error('MONGO_URI is not defined. Please check your .env file.');
+  process.exit(1);
+}
+
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Database connected'))
+  .catch((err) => console.error('Error connecting to the database:', err));
